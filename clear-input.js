@@ -1,20 +1,20 @@
-<script>
-//http://thomas.vondeyen.com/2011/02/22/html5-forms-placeholder-fallback/
-// clear staff search field on click
+$(function() {
+    // adapted from http://thomas.vondeyen.com/2011/02/22/html5-forms-placeholder-fallback/
+
     // test for placeholder support
     if (!("placeholder" in document.createElement("input"))) {
         // target all elements with placeholder attr
         $('*[placeholder]').each(function() {
-
+            // cache jq element
             var $element = $(this);
             var placeholder = $element.attr(placeholder);
 
-            // IE support - use value attr as placeholder
+            // IE support - use value attr as placeholder since it doesn't recognise placeholder attr
             if(placeholder === undefined) {
                 placeholder = this.defaultValue;
             }
             
-            if($element.val() == '') {
+            if($element.val() === '') {
                 $element.val(placeholder);
             }
             
@@ -38,8 +38,4 @@
             }
         });
     }
-</script>
-
-<form action="">
-    <input class="searchTextBox" placeholder="Search" name="search-input" type="text" value="Search" />
-</form>
+});
