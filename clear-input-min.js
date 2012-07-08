@@ -1,0 +1,1 @@
+$(function(){"placeholder"in document.createElement("input")?$("*[placeholder]").each(function(){var e=$(this);e.val()===this.defaultValue&&e.val("")}):$("*[placeholder]").each(function(){var e=$(this),t=e.attr(t);t===undefined&&(t=this.defaultValue);e.val()===""&&e.val(t);e.bind("focus",function(){e.val()===t&&e.val("")});e.bind("blur",function(){e.val()===""&&e.val(t)})})});
